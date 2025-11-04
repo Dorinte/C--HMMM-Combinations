@@ -29,21 +29,16 @@ int main() {
 
     //Error handling
     if (n <= 0 || k <= 00) {
-        cout << "Error, n and k must be positive integers." << endl;
-        return 1;
-    }
-
-    if (k > n) {
-        cout << "Error, k cannot be greater than n." << endl;
-        return 1;
+        cout << -1 << endl;
+        return 0;
     }
 
     int n_fact = factorial(n);
     int k_fact = factorial(k);
     int difference_fact = factorial(n-k);
-    
+
     // calculate C(n,k) = n! / (k! * (n-k)!)
-    uint16_t c_n_k = factorial(n);
+    uint16_t c_n_k = n_fact / (k_fact * difference_fact);
 
     // write out results
     cout << "result = " << c_n_k << endl;
