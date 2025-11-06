@@ -7,18 +7,26 @@
 # register usage
 # STUDENTS MUST EXPLAIN ALL REGISTERS THEY USE AND FOR WHAT PURPOSE HERE
 ################################################################################
-# r0 <- 0
-# r1 <- n
 
-# HMMMM pre-defined registers
-# r13 Function return value
-# r14 Function return address
-# r15 Stack pointer
+# r0   = constant 0 (unused but reserved)
+# r1   = temporary / loop diff
+# r2   = function argument x
+# r3   = factorial return value
+# r4   = n (user input)
+# r5   = k (user input)
+# r6   = temp for validation (k - n)
+# r7   = n! result
+# r8   = k! result
+# r9   = (n - k)
+# r10  = (n - k)! result
+# r11  = denominator (k! * (n-k)!)
+# r12  = final C(n,k)
+# r13  = loop variable (i) inside factorial
+# r14  = return address register for calln
+# r15  = stack pointer
 
 # STUIDENTS NEED TO ADD THEIR OWN ASSEMBLY CODE HERE
 
-################################################################################
-# read n, print n, and stop
 ################################################################################
 
 0 setn r15 120 # Initializing stack pointer
