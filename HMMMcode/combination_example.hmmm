@@ -20,8 +20,45 @@
 ################################################################################
 # read n, print n, and stop
 ################################################################################
-00 read r1 # Read a number into r1
-01 copy r2 r1 # Copy r1 into r2 
-02 add r3 r1 r2 # r3 = r1 + r2 (double it) 
-03 write r3 # Output result 
-04 halt
+
+0 setn r15 120 # Initializing stack pointer
+
+#User input#
+1 read r4         # reads input for n
+2 read r5         # reads input for k
+
+#Validating inputs#
+3 jltzn r4 21     # If n < 0 -> invalid 
+4 jeqzn r4 21     # If n == 0 -> invalid
+5 jltzn r5 21     # If k < 0 -> invalid
+6 jltzn r5 21     # If k == 0 -< invalid
+
+#Computing n!#
+7 copy r2 r5      # Move n into factorial argument 
+8 calln r14 40    # Call factorial function
+9 copy r8 r3      # Store n! into r8
+
+#Computing k!#
+10 copy r2 r5     # Move k into argument
+11 calln r14 40   # Call factorial function
+12 copy r8 r3     # Store k! into r8
+
+#Computing (n-k)!#
+13 sub r9 r4 r5   # r9 = n - k
+14 copy r2 r9     # Pushhing (n-k) into argument
+15 calln r14 40   # Call factorial function
+16 copy r10 r3    # Store (n-k)! into r19
+
+#Final calculations#
+17 mul r11 r8 r10 # denominator = k! * (n-k)!
+18 div r12 r7 r11 # result = n! / denominator
+19 write r12      # #Outputting result
+20 halt           
+
+#Handling invalid inputs#
+21 setn r12 -1    # Output -1 for invalid inputs
+22 write r12
+23 halt
+
+#Factorial function#
+24

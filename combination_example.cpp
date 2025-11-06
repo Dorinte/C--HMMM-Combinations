@@ -33,9 +33,9 @@ int main() {
         return 0;
     }
 
-    int n_fact = factorial(n);
-    int k_fact = factorial(k);
-    int difference_fact = factorial(n-k);
+    uint16_t n_fact = factorial(n);
+    uint16_t k_fact = factorial(k);
+    uint16_t difference_fact = factorial(n-k);
 
     // calculate C(n,k) = n! / (k! * (n-k)!)
     uint16_t c_n_k = n_fact / (k_fact * difference_fact);
